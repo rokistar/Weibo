@@ -8608,7 +8608,6 @@
 				TargetAttributes = {
 					FCF27FC41AE5753000A89E17 = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = V96PFV5F3T;
 					};
 					FCF27FDD1AE5753000A89E17 = {
 						CreatedOnToolsVersion = 6.3;
