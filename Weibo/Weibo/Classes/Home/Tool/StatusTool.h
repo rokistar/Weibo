@@ -6,7 +6,10 @@
 //  Copyright (c) 2015 Roki. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "BaseTool.h"
+#import "ParamModel.h"
+#import "ResultModel.h"
+
 @class Status;
 // statues装的都是Status对象
 typedef void (^StatusSuccessBlock)(NSArray *statuses);
@@ -21,7 +24,11 @@ typedef void (^RepostsFailureBlock)(NSError *error);
 typedef void (^SingleStatusSuccessBlock)(Status *status);
 typedef void (^SingleStatusFailureBlock)(NSError *error);
 
-@interface StatusTool : NSObject
+typedef void(^ResultSuccessBlock) (ResultModel *result);
+typedef void(^ResultFailureBlock) (NSError *error);
+
+
+@interface StatusTool : BaseTool
 // 抓取微博数据
 + (void)statusesWithSinceId:(long long)sinceId maxId:(long long)maxId success:(StatusSuccessBlock)success failure:(StatusFailureBlock)failure;
 
@@ -33,5 +40,8 @@ typedef void (^SingleStatusFailureBlock)(NSError *error);
 
 // 抓取单条微博数据
 + (void)statusWithId:(long long)ID  success:(SingleStatusSuccessBlock)success failure:(SingleStatusFailureBlock)failure;
+
+
++(void)statusesWithParams:(ParamModel *)params success:(ResultSuccessBlock)success failure:(ResultFailureBlock)failure;
 
 @end

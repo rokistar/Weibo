@@ -17,5 +17,4 @@
 +(NSDictionary *)objectClassInArray{
     return @{@"statuses":[StatusModel class]};
 }
-
 @end

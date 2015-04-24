@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^SuccessBlock)(NSArray *statuses);
+typedef void (^SuccessBlock)(id);
+typedef void (^FailureBlock)(NSError *error);
 
 @interface BaseTool : NSObject
 
-+ (void)getWithUrl:(NSString *)url param:(id)param resultClass:(Class)resultClass success:(void (^)(id))success failure:(void (^)(NSError *))failure;
-+ (void)postWithUrl:(NSString *)url param:(id)param resultClass:(Class)resultClass success:(void (^)(id))success failure:(void (^)(NSError *))failure;
++ (void)getWithURL:(NSString *)url params:(id)params resultClass:(Class)resultClass success:(SuccessBlock)success failure:(FailureBlock)failure;
+
++ (void)postWithURL:(NSString *)url params:(id)params resultClass:(Class)resultClass success:(SuccessBlock)success failure:(FailureBlock)failure;
 
 @end

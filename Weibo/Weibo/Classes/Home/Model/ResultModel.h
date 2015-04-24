@@ -10,8 +10,14 @@
 
 @interface ResultModel : NSObject
 
-/**微博数组 装着YYStatus模型*/
-@property(nonatomic,strong)NSArray *statuses;
-/**近期的微博总数*/
-@property(nonatomic,assign)int total_number;
+//Status模型
+@property(nonatomic,strong)NSMutableArray *statuses;
+
+//存放着一堆的广告数据（里面都是Ad模型)
+@property (nonatomic,strong) NSArray *ads;
+
+//近期微博总数
+@property(nonatomic,assign)NSNumber *total_number;
+
+
 @end

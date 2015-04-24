@@ -25,7 +25,7 @@ typedef enum {
 
 @interface UserModel : NSObject
 
-@property (nonatomic, copy) NSString *screenName;
+@property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *profileImageUrl;
 @property (nonatomic, assign) BOOL verified; //是否是微博认证用户，即加V用户
 @property (nonatomic, assign) VerifiedType verifiedType; // 认证类型
