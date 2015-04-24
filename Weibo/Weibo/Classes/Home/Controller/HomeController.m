@@ -13,9 +13,12 @@
 #import "AFNetworking.h"
 #import "UIImageView+WebCache.h"
 #import "HttpTool.h"
+#import "ParamModel.h"
+#import "ResultModel.h"
 #import "MJExtension.h"
-
 #import "AccountTool.h"
+#import "StatusTool.h"
+#import "Config.h"
 
 
 #define kTableBorderWidth 8
@@ -28,7 +31,7 @@
 @interface HomeController ()<UITableViewDataSource,UITableViewDelegate>{
     
     NSMutableArray *_statusFrames;
-    NSArray *_statuses;
+    NSMutableArray *_statuses;
 }
 
 @end
@@ -44,7 +47,9 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self loadNewStatus];
-  
+    [self addRefresh];
+    [self loadNewStatus];
+
 }
 
 #pragma mark 设置界面属性
@@ -75,6 +80,50 @@
 {
     NSLog(@"弹出菜单");
 }
+//集成刷新控件
+-(void)addRefresh{
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc]init];
+    
+    [self.tableView addSubview:refreshControl];
+    [refreshControl addTarget:self action:(@selector(refreshControlStateChange:)) forControlEvents:UIControlEventValueChanged];
+
+    [self loadNewStatus];
+}
+- (void)refreshControlStateChange:(UIRefreshControl *)refreshControl{
+    // 1.第1条微博的ID
+   // NSMutableDictionary *params=[NSMutableDictionary dictionary];
+    StatusModel *firstStatus=[_statuses firstObject];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    params[@"access_token"] =[AccountTool sharedAccountTool].account.accessToken;
+    
+    
+    params[@"since_id"] = firstStatus.idstr;
+    
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    [mgr GET:kReadNewURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSArray *array = responseObject[@"statuses"];
+        NSArray *newStatuses = [StatusModel objectArrayWithKeyValuesArray:array];
+      //  NSLog(@"mm-%@",newStatuses.)
+        
+        //把新数据添加到旧数据的前面
+        NSRange range = NSMakeRange(0, newStatuses.count);
+        NSIndexSet *indexSet=[NSIndexSet indexSetWithIndexesInRange:range];
+        [_statuses insertObjects:newStatuses atIndexes:indexSet];
+        
+        [self.tableView reloadData];
+        
+        NSLog(@"%@",responseObject);
+        [refreshControl endRefreshing];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        return ;
+    }];
+//      [StatusTool statusesWithSinceId:[firstStatus.idstr longLongValue] maxId:0 success:^(NSArray *statuses) {
+//        [refreshControl endRefreshing];
+//    } failure:^(NSError *error) {
+//        [refreshControl endRefreshing];
+//    }];
+    
+}
 /**加载最新微博数据*/
 -(void)loadNewStatus{
     NSString *path = @"https://api.weibo.com/2/statuses/home_timeline.json";
@@ -82,7 +131,7 @@
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"] =[AccountTool sharedAccountTool].account.accessToken;
     //设置请求返回3天数据
-    params[@"count"]=@22;
+   // params[@"count"]=@22;
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
@@ -93,21 +142,13 @@ success:^(AFHTTPRequestOperation *operation, id responseObject) {
     
     // 微博字典 -- 数组
     NSArray *statusDictArray = responseObject[@"statuses"];
-    _statuses = [StatusModel objectArrayWithKeyValuesArray:statusDictArray];
-
-      NSLog(@"111-%d",_statuses.count);
-    
-
+        _statuses = (NSMutableArray *)[StatusModel objectArrayWithKeyValuesArray:statusDictArray];
        [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"请求失败");
     }];
-
-    
-    
-    
-    
 }
+
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -126,8 +167,8 @@ success:^(AFHTTPRequestOperation *operation, id responseObject) {
     //取出这行对应的微博字典数据,转换为数据模型
     StatusModel *status=_statuses[indexPath.row];
     cell.textLabel.text=status.text;
-    cell.detailTextLabel.text=status.user.name;
-    NSString *imageUrlStr=status.user.profile_image_url;
+    cell.detailTextLabel.text=status.user.screenName;
+    NSString *imageUrlStr=status.user.profileImageUrl;
     
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrlStr] placeholderImage:[UIImage imageNamed:@"avatar_default_small.png"]];
 

@@ -13,6 +13,10 @@
 #import "NewFeatureController.h"
 #import "SDWebImageManager.h"
 #import "SDImageCache.h"
+#import "CustomNavigationController.h"
+#import "AFNetworkReachabilityManager.h"
+#import "MBProgressHUD.h"
+#import "MBProgressHUD+Show.h"
 
 @interface AppDelegate ()
 
@@ -55,9 +59,37 @@
     }
     
     [self.window makeKeyAndVisible];
+//    //监控网络状况
+//    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+//   
+//    UIView *view = [[UIView alloc]init];
+//    view.frame = [[UIScreen mainScreen] bounds];
+//    view.backgroundColor = [UIColor redColor];
+//    [self.window.rootViewController.view addSubview:view];
+//    
+//    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+//        switch (status) {
+//            case AFNetworkReachabilityStatusUnknown:
+//            case AFNetworkReachabilityStatusNotReachable:
+//                RLog(@"没有网络");
+//                [MBProgressHUD showError:@"没有网络" view:nil];
+//                break;
+//            case AFNetworkReachabilityStatusReachableViaWiFi:
+//                RLog(@"wifi");
+//                [MBProgressHUD showError:@"没有网络wifi" view:view];
+//                break;
+//            case AFNetworkReachabilityStatusReachableViaWWAN:
+//                RLog(@"手机自带网络");
+//                break;
+//            default:
+//                break;
+//        }
+//    }];
+//    [manager startMonitoring];
     return YES;
 
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

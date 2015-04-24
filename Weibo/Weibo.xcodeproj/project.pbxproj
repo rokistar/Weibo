@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FC2FAB241AE630910088682E /* UIColor+RGB.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2FAB231AE630910088682E /* UIColor+RGB.m */; };
+		FC5DB3771AE8ACB2009CA727 /* MBProgressHUD+Show.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5DB3761AE8ACB2009CA727 /* MBProgressHUD+Show.m */; };
+		FC5DB37A1AE8BAF7009CA727 /* StatusTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5DB3791AE8BAF7009CA727 /* StatusTool.m */; };
 		FC6064581AE7C1E80088FF6B /* ComposePhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6064571AE7C1E80088FF6B /* ComposePhotoView.m */; };
 		FC9E66351AE74BC9002FF852 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9E66341AE74BC9002FF852 /* ImageIO.framework */; };
 		FC9E66381AE751DE002FF852 /* NewStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9E66371AE751DE002FF852 /* NewStatusView.m */; };
@@ -49,6 +51,9 @@
 		FC9FD9E21AE660990092E6BB /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9FD9E11AE660990092E6BB /* UserModel.m */; };
 		FC9FD9E51AE660AE0092E6BB /* StatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9FD9E41AE660AE0092E6BB /* StatusModel.m */; };
 		FC9FD9E81AE660C20092E6BB /* PhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9FD9E71AE660C20092E6BB /* PhotoModel.m */; };
+		FCA9A3AC1AEA1E8F00E0433C /* ParamModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A3AB1AEA1E8F00E0433C /* ParamModel.m */; };
+		FCA9A3AF1AEA236400E0433C /* ResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A3AE1AEA236400E0433C /* ResultModel.m */; };
+		FCA9A3B21AEA27AB00E0433C /* BaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A3B11AEA27AB00E0433C /* BaseTool.m */; };
 		FCC5769B1AE5A6050016F693 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF280711AE57CA300A89E17 /* main.m */; };
 		FCC5769C1AE5A6110016F693 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF280661AE57BA300A89E17 /* AppDelegate.m */; };
 		FCC5769D1AE5A61B0016F693 /* UIBarButtonItem+Icon.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF294C21AE599C000A89E17 /* UIBarButtonItem+Icon.m */; };
@@ -2676,6 +2681,11 @@
 		FC2FAB221AE630910088682E /* UIColor+RGB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGB.h"; sourceTree = "<group>"; };
 		FC2FAB231AE630910088682E /* UIColor+RGB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGB.m"; sourceTree = "<group>"; };
 		FC2FAB281AE643BB0088682E /* ComposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeController.h; sourceTree = "<group>"; };
+		FC5DB3711AE898E1009CA727 /* Weibo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weibo.pch; sourceTree = "<group>"; };
+		FC5DB3751AE8ACB2009CA727 /* MBProgressHUD+Show.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Show.h"; sourceTree = "<group>"; };
+		FC5DB3761AE8ACB2009CA727 /* MBProgressHUD+Show.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Show.m"; sourceTree = "<group>"; };
+		FC5DB3781AE8BAF7009CA727 /* StatusTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusTool.h; sourceTree = "<group>"; };
+		FC5DB3791AE8BAF7009CA727 /* StatusTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusTool.m; sourceTree = "<group>"; };
 		FC6064561AE7C1E80088FF6B /* ComposePhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposePhotoView.h; sourceTree = "<group>"; };
 		FC6064571AE7C1E80088FF6B /* ComposePhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposePhotoView.m; sourceTree = "<group>"; };
 		FC9E66341AE74BC9002FF852 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -2757,6 +2767,12 @@
 		FC9FD9E41AE660AE0092E6BB /* StatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusModel.m; sourceTree = "<group>"; };
 		FC9FD9E61AE660C20092E6BB /* PhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoModel.h; sourceTree = "<group>"; };
 		FC9FD9E71AE660C20092E6BB /* PhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoModel.m; sourceTree = "<group>"; };
+		FCA9A3AA1AEA1E8F00E0433C /* ParamModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParamModel.h; sourceTree = "<group>"; };
+		FCA9A3AB1AEA1E8F00E0433C /* ParamModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParamModel.m; sourceTree = "<group>"; };
+		FCA9A3AD1AEA236400E0433C /* ResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultModel.h; sourceTree = "<group>"; };
+		FCA9A3AE1AEA236400E0433C /* ResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultModel.m; sourceTree = "<group>"; };
+		FCA9A3B01AEA27AB00E0433C /* BaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTool.h; sourceTree = "<group>"; };
+		FCA9A3B11AEA27AB00E0433C /* BaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTool.m; sourceTree = "<group>"; };
 		FCC576C51AE5A8030016F693 /* DockController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockController.h; sourceTree = "<group>"; };
 		FCC576C61AE5A8030016F693 /* DockController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockController.m; sourceTree = "<group>"; };
 		FCF27FC51AE5753000A89E17 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -5581,6 +5597,10 @@
 				FC9FD9E41AE660AE0092E6BB /* StatusModel.m */,
 				FC9FD9E61AE660C20092E6BB /* PhotoModel.h */,
 				FC9FD9E71AE660C20092E6BB /* PhotoModel.m */,
+				FCA9A3AA1AEA1E8F00E0433C /* ParamModel.h */,
+				FCA9A3AB1AEA1E8F00E0433C /* ParamModel.m */,
+				FCA9A3AD1AEA236400E0433C /* ResultModel.h */,
+				FCA9A3AE1AEA236400E0433C /* ResultModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -5588,6 +5608,10 @@
 		FC9FD9781AE64CBE0092E6BB /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				FC5DB3781AE8BAF7009CA727 /* StatusTool.h */,
+				FC5DB3791AE8BAF7009CA727 /* StatusTool.m */,
+				FCA9A3B01AEA27AB00E0433C /* BaseTool.h */,
+				FCA9A3B11AEA27AB00E0433C /* BaseTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -5641,6 +5665,7 @@
 			children = (
 				FCF280711AE57CA300A89E17 /* main.m */,
 				FCF2806F1AE57BF400A89E17 /* Info.plist */,
+				FC5DB3711AE898E1009CA727 /* Weibo.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -8555,6 +8580,8 @@
 				FCF294C21AE599C000A89E17 /* UIBarButtonItem+Icon.m */,
 				FC2FAB221AE630910088682E /* UIColor+RGB.h */,
 				FC2FAB231AE630910088682E /* UIColor+RGB.m */,
+				FC5DB3751AE8ACB2009CA727 /* MBProgressHUD+Show.h */,
+				FC5DB3761AE8ACB2009CA727 /* MBProgressHUD+Show.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -11241,6 +11268,7 @@
 				FC9FD97C1AE64D830092E6BB /* OauthController.m in Sources */,
 				FC9FD96E1AE648CE0092E6BB /* AFURLResponseSerialization.m in Sources */,
 				FCC576AC1AE5A65C0016F693 /* SDWebImageCompat.m in Sources */,
+				FCA9A3AC1AEA1E8F00E0433C /* ParamModel.m in Sources */,
 				FCC576AD1AE5A65C0016F693 /* SDWebImageDecoder.m in Sources */,
 				FC9E66741AE7914A002FF852 /* ComposeController.m in Sources */,
 				FCC576AE1AE5A65C0016F693 /* SDWebImageDownloader.m in Sources */,
@@ -11255,11 +11283,13 @@
 				FC9FD94A1AE647780092E6BB /* MJRefreshFooter.m in Sources */,
 				FC9FD9501AE647780092E6BB /* UIScrollView+MJExtension.m in Sources */,
 				FC9FD94E1AE647780092E6BB /* MJRefreshLegendFooter.m in Sources */,
+				FC5DB37A1AE8BAF7009CA727 /* StatusTool.m in Sources */,
 				FC9E66771AE7935E002FF852 /* ComposeToolBarItem.m in Sources */,
 				FCC576B41AE5A65C0016F693 /* UIImage+MultiFormat.m in Sources */,
 				FCC576B51AE5A65C0016F693 /* UIImage+WebP.m in Sources */,
 				FCC576C71AE5A8030016F693 /* DockController.m in Sources */,
 				FCC576B61AE5A65C0016F693 /* UIImageView+HighlightedWebCache.m in Sources */,
+				FCA9A3AF1AEA236400E0433C /* ResultModel.m in Sources */,
 				FC9FD9511AE647780092E6BB /* UIScrollView+MJRefresh.m in Sources */,
 				FCC576B71AE5A65C0016F693 /* UIImageView+WebCache.m in Sources */,
 				FC9FD9721AE649530092E6BB /* ImageTool.m in Sources */,
@@ -11274,6 +11304,7 @@
 				FC9FD9431AE647780092E6BB /* MJType.m in Sources */,
 				FC9FD9521AE647780092E6BB /* UIView+MJExtension.m in Sources */,
 				FCC576BA1AE5A65C0016F693 /* Dock.m in Sources */,
+				FCA9A3B21AEA27AB00E0433C /* BaseTool.m in Sources */,
 				FCC576BB1AE5A65C0016F693 /* DockItem.m in Sources */,
 				FCC576BC1AE5A65C0016F693 /* NewWeiboController.m in Sources */,
 				FCC576BD1AE5A65C0016F693 /* DiscoverController.m in Sources */,
@@ -11297,6 +11328,7 @@
 				FCC5769F1AE5A6230016F693 /* AccountTool.m in Sources */,
 				FC9FD9421AE647780092E6BB /* MJIvar.m in Sources */,
 				FC9E66721AE7669F002FF852 /* ComposeToolBar.m in Sources */,
+				FC5DB3771AE8ACB2009CA727 /* MBProgressHUD+Show.m in Sources */,
 				FCC5769E1AE5A6200016F693 /* HttpTool.m in Sources */,
 				FC9FD94C1AE647780092E6BB /* MJRefreshGifHeader.m in Sources */,
 				FCC5769D1AE5A61B0016F693 /* UIBarButtonItem+Icon.m in Sources */,
@@ -11409,6 +11441,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Weibo/Weibo.pch;
 				INFOPLIST_FILE = Weibo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -11421,6 +11455,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Weibo/Weibo.pch;
 				INFOPLIST_FILE = Weibo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -20,13 +20,14 @@ typedef void (^FailureBlock)(NSError *error);
 + (void)getWithPath:(NSString *)path params:(id)params success:(SuccessBlock)success failure:(FailureBlock)failure;
 + (void)postWithPath:(NSString *)path params:(id)params success:(SuccessBlock)success failure:(FailureBlock)failure;
 
++ (void)getWithURL:(NSString *)url params:(id)params success:(SuccessBlock)success failure:(FailureBlock)failure;
++ (void)postWithURL:(NSString *)url params:(id)params success:(SuccessBlock)success failure:(FailureBlock)failure;
+
 + (void)downloadImage:(NSString *)url place:(UIImage *)place imageView:(UIImageView *)imageView;
 
 //Roki
 + (void)networkingStatus;
 
-+ (void)JSONDataWithUrl:(NSString *)url success:(void (^)(id json))success fail:(void (^)())fail;
-+ (void)postJSONWithUrl:(NSString *)urlStr parameters:(id)parameters success:(void (^)(id responseObject))success fail:(void (^)())fail;
 
 @end
 

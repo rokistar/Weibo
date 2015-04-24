@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "UserModel.h"
 
+@class StatusModel;
 
 @interface StatusModel : NSObject
 
@@ -16,7 +17,9 @@
 @property(nonatomic,copy)NSString *created_at;
 
 /**    string    字符串型的微博ID*/
+//@property(nonatomic,assign)long long ID;
 @property(nonatomic,copy)NSString *idstr;
+
 
 /**    string    微博信息内容*/
 @property(nonatomic,copy)NSString *text;

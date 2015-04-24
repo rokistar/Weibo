@@ -10,4 +10,6 @@
 
 @interface CustomNavigationController : UINavigationController
 
+- (UIView *)rootView;
+
 @end

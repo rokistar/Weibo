@@ -71,5 +71,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (UIView *)rootView{
+    UINavigationController *nav = [[UINavigationController alloc]init];
+    return nav.viewControllers[0];
+}
 
 @end

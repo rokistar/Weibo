@@ -17,6 +17,8 @@
 
 #define kAuthorizeURL [kBaseURL stringByAppendingPathComponent:@"oauth2/authorize"]
 
+#define kReadNewURL [kBaseURL stringByAppendingPathComponent:@"2/statuses/home_timeline.json"]
+#define kShowByID   [kBaseURL stringByAppendingPathComponent:@"2/statuses/show.json"]
 
 #endif
 
