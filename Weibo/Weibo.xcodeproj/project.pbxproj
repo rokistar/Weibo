@@ -21,6 +21,7 @@
 		FC5DB3771AE8ACB2009CA727 /* MBProgressHUD+Show.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5DB3761AE8ACB2009CA727 /* MBProgressHUD+Show.m */; };
 		FC5DB37A1AE8BAF7009CA727 /* StatusTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5DB3791AE8BAF7009CA727 /* StatusTool.m */; };
 		FC6064581AE7C1E80088FF6B /* ComposePhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6064571AE7C1E80088FF6B /* ComposePhotoView.m */; };
+		FC84E2D01AEE275A0071035E /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE69CCC1AEE23F500FA620B /* UserModel.m */; };
 		FC9E66351AE74BC9002FF852 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9E66341AE74BC9002FF852 /* ImageIO.framework */; };
 		FC9E66381AE751DE002FF852 /* NewStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9E66371AE751DE002FF852 /* NewStatusView.m */; };
 		FC9E663A1AE756D5002FF852 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9E66391AE756D5002FF852 /* MapKit.framework */; };
@@ -11343,6 +11344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC84E2D01AEE275A0071035E /* UserModel.m in Sources */,
 				FC10AF4B1AEB542300CA0CF9 /* StatusFrame.m in Sources */,
 				FC9FD9671AE648CE0092E6BB /* AFHTTPRequestOperation.m in Sources */,
 				FC9FD9461AE647780092E6BB /* NSObject+MJKeyValue.m in Sources */,

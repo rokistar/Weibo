@@ -36,3 +36,5 @@ typedef enum {
 @property (nonatomic, assign) MBType mbtype; // 会员类型
 
 @end
+
+

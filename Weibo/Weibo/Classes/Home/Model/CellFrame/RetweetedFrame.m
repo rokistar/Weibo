@@ -7,6 +7,19 @@
 //
 
 #import "RetweetedFrame.h"
+#import "UserModel.h"
+#import "StatusModel.h"
+
+
+#define kStatusInset 5
+
+#define kNameFont [UIFont systemFontOfSize:13]
+
+#define kTimeFont [UIFont systemFontOfSize:11]
+
+#define kSourceFont kTimeFont
+
+#define kTextFont [UIFont systemFontOfSize:13]
 
 @implementation RetweetedFrame
 
@@ -15,9 +28,28 @@
     _retweeted_status = retweeted_status;
     
     //1,计算昵称frame
+    CGFloat nameX = kStatusInset;
+    CGFloat nameY = kStatusInset;
+    CGSize nameSize = [retweeted_status.retweeted_status.user.name sizeWithFont:kSourceFont];
+    self.nameFrame = (CGRect){{nameX,nameY},nameSize};
+    
     
     //2,计算转发微博正文frame
+    CGFloat textX = nameX;
+    CGFloat textY = CGRectGetMaxY(self.nameFrame) + kStatusInset;
+    CGFloat maxW = [UIScreen mainScreen].bounds.size.width;
+    CGSize maxSize = CGSizeMake(maxW, MAXFLOAT);
+    CGSize textSize = [retweeted_status.text sizeWithFont:kTextFont constrainedToSize:maxSize];
+    self.textFrame = (CGRect){{textX,textY},textSize};
+    
     
     //3,计算自己的frame
+    
+    CGFloat x = 0;
+    CGFloat y = 0;
+    CGFloat w = [UIScreen mainScreen].bounds.size.width;
+    CGFloat h = CGRectGetMaxY(self.textFrame);
+    self.frame = CGRectMake(x, y, w, h);
+    
 }
 @end

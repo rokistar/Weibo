@@ -23,6 +23,7 @@
 #import "ParamModel.h"
 #import "ResultModel.h"
 
+#import "StatusFrame.h"
 #import "StatusCell.h"
 
 
@@ -39,16 +40,18 @@
     NSMutableArray *_statusFrames;
 }
 @property(nonatomic,strong)NSMutableArray *statuses;
+//@property(nonatomic,strong)StatusFrame *statusesFrame;
+
 @end
 
 @implementation HomeController
--(NSMutableArray *)statuses
-{
-    if (_statuses==nil) {
-        _statuses=[NSMutableArray array];
-    }
-    return _statuses;
-}
+//-(NSMutableArray *)statuses
+//{
+//    if (_statuses==nil) {
+//        _statuses=[NSMutableArray array];
+//    }
+//    return _statuses;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -112,7 +115,17 @@
     [self loadNewStatuses:refreshControl];
 }
 
-
+#pragma mark - 加载微博
+- (NSArray *)statusFramesWithStatuses:(NSArray *)statuses{
+    NSMutableArray *frames = [NSMutableArray array];
+    // 1.在拿到最新微博数据的同时计算它的frame
+    for (StatusModel *status in statuses) {
+        StatusFrame *frame = [[StatusFrame alloc]init];
+        frame.status = status;
+        [frames addObject:frame];
+    }
+    return frames;
+}
 -(void)loadNewStatuses:(UIRefreshControl *)refreshControl{
     //1.封装请求参数
     ParamModel *params = [[ParamModel alloc]init];

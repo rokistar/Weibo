@@ -21,3 +21,5 @@ typedef enum {
 - (void)setUser:(UserModel *)user type:(IconType)type;
 
 + (CGSize)iconSizeWithType:(IconType)type;
+
+@end
