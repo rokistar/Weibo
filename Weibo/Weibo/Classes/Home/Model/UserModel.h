@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Roki. All rights reserved.
 //
 
+
 #import <Foundation/Foundation.h>
 
 typedef enum {
@@ -27,8 +28,6 @@ typedef enum {
 
 @property (nonatomic, assign) long long ID;
 @property (nonatomic, copy) NSString *createdAt;
-
-
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *profileImageUrl;
 @property (nonatomic, assign) BOOL verified; //是否是微博认证用户，即加V用户

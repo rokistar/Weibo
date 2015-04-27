@@ -27,7 +27,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        //增加原创微博
         [self addOriginalView];
+        //增加转发微博
         [self addRetweetedView];
     }
     return self;
@@ -47,8 +49,12 @@
 }
 -(void)setDetailFrame:(DetailFrame *)detailFrame{
     _detailFrame = detailFrame;
+    //1，设置自己的frame
     self.frame = detailFrame.frame;
-   
+    //2，设置原创微博的frame
+    self.originalView.originalFrame = detailFrame.originalFrame;
+    //3，设置转发微博的frame
+    self.retweetedView.retweetedFrame = detailFrame.retweetedFrame;
 
 }
 @end

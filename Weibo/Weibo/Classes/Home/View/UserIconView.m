@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Roki. All rights reserved.
 //
 
-#import "IconView.h"
+#import "UserIconView.h"
 #import "UserModel.h"
 #import "HttpTool.h"
 // 会员皇冠图标
@@ -29,7 +29,7 @@
 
 
 
-@interface IconView()
+@interface UserIconView()
 {
     UIImageView *_icon; // 头像图片
     UIImageView *_vertify; // 认证图标
@@ -38,7 +38,7 @@
 }
 @end
 
-@implementation IconView
+@implementation UserIconView
 
 // 任何UIView的init方法内部都会调用initWithFrame:方法
 - (id)initWithFrame:(CGRect)frame
@@ -136,15 +136,16 @@
 {
     CGSize iconSize;
     switch (type) {
-        case kIconTypeSmall: // 小图标
+        // 小图标
+        case kIconTypeSmall:
             iconSize = CGSizeMake(kIconSmallW, kIconSmallH);
             break;
-            
-        case kIconTypeDefault: // 中图标
+        // 中图标
+        case kIconTypeDefault:
             iconSize = CGSizeMake(kIconDefaultW, kIconDefaultH);
             break;
-            
-        case kIconTypeBig: // 大图标
+        // 大图标
+        case kIconTypeBig:
             iconSize = CGSizeMake(kIconBigW, kIconBigH);
             break;
     }

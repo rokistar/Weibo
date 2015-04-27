@@ -15,10 +15,13 @@
 
 @interface DetailFrame : NSObject
 
+//微博数据模型
 @property (nonatomic,strong)StatusModel *status;
+//原创微博frame
 @property (nonatomic,strong)OriginalFrame *originalFrame;
+//转发微博frame
 @property (nonatomic,strong)RetweetedFrame *retweetedFrame;
-
+//自己的frame
 @property (nonatomic,assign)CGRect frame;
 
 @end

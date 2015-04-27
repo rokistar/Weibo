@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class RetweetedFrame;
 @interface RetweetedView : UIView
 
+@property(nonatomic,strong)RetweetedFrame *retweetedFrame;
 @end

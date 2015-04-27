@@ -10,6 +10,7 @@
 #import "DetailFrame.h"
 
 
+
 @implementation StatusFrame
 
 -(void)setStatus:(StatusModel *)status{
@@ -22,6 +23,7 @@
     
     //3,计算微博整体cell高度
     self.cellHight = CGRectGetMaxY(self.toolbarFrame);
+    
     
     
 }

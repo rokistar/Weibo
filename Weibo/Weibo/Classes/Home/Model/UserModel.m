@@ -9,6 +9,11 @@
 #import "UserModel.h"
 #import "MJExtension.h"
 
+@interface UserModel(){
+    
+}
+
+@end
 
 @implementation UserModel
 

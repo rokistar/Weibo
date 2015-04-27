@@ -14,7 +14,7 @@ typedef enum {
 } IconType;
 
 @class UserModel;
-@interface IconView : UIView
+@interface UserIconView : UIView
 @property (nonatomic, strong) UserModel *user;
 @property (nonatomic, assign) IconType type;
 
