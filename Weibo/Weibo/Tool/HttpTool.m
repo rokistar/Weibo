@@ -68,51 +68,11 @@
 
 }
 
-+ (void)requestWithPath:(NSString *)path params:(id)params success:(SuccessBlock)success failure:(FailureBlock)failure method:(NSString *)method{
-    
-    NSMutableDictionary *allParams = [NSMutableDictionary dictionary];
-    // 拼接传进来的参数
-    if (params) {
-        [allParams setDictionary:params];
-    }
-    
-    // 拼接token参数
-    NSString *token = [AccountTool sharedAccountTool].account.accessToken;
-    if (token) {
-        [allParams setObject:token forKey:@"access_token"];
-    }
-
-    
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
-    [manager GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (success == nil) return;
-        success(responseObject);
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (failure == nil) return;
-    }];
-}
-
-
-+ (void)getWithPath:(NSString *)path params:(id)params success:(SuccessBlock)success failure:(FailureBlock)failure
-{
-    [self requestWithPath:path params:params success:success failure:failure method:@"GET"];
-}
-
-+ (void)postWithPath:(NSString *)path params:(id)params success:(SuccessBlock)success failure:(FailureBlock)failure{
-    [self requestWithPath:path params:params success:success failure:failure method:@"POST"];
-}
-
-
 + (void)downloadImage:(NSString *)url place:(UIImage *)place imageView:(UIImageView *)imageView
 {
     [imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:place options:SDWebImageLowPriority | SDWebImageRetryFailed];
 }
 
-//Roki
 + (void)networkingStatus{
     /**
      AFNetworkReachabilityStatusUnknown          = -1,  // 未知

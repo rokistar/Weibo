@@ -9,17 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-//mj
 typedef void (^SuccessBlock)(id responseObject);
 typedef void (^FailureBlock)(NSError *error);
 
 @interface HttpTool : NSObject
-
-+(void)requestWithPath:(NSString *)path params:(id)params success:(SuccessBlock)success failure:(FailureBlock)failure method:(NSString *)method;
-
-+ (void)getWithPath:(NSString *)path params:(id)params success:(SuccessBlock)success failure:(FailureBlock)failure;
-+ (void)postWithPath:(NSString *)path params:(id)params success:(SuccessBlock)success failure:(FailureBlock)failure;
-
 + (void)getWithURL:(NSString *)url params:(id)params success:(SuccessBlock)success failure:(FailureBlock)failure;
 + (void)postWithURL:(NSString *)url params:(id)params success:(SuccessBlock)success failure:(FailureBlock)failure;
 

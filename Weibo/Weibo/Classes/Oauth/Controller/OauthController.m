@@ -80,29 +80,57 @@
 #pragma mark 换取accessToken
 - (void)getAccessToken:(NSString *)requestToken
 {
-    [HttpTool postWithPath:@"https://api.weibo.com/oauth2/access_token"
-                    params:@{
-                             @"client_id" : kAppKey,
-                             @"client_secret" : kAppSecret,
-                             @"grant_type" : @"authorization_code",
-                             @"redirect_uri" : kRedirectURI,
-                             @"code" : requestToken
-                             } success:^(id JSON) {
-                                 // 保存账号信息
-                                 Account *account = [[Account alloc] init];
-                                 account.accessToken = JSON[@"access_token"];
-                                 account.uid = JSON[@"uid"];
-                                 [[AccountTool sharedAccountTool] saveAccount:account];
-                                 
-                                 // 回到主页面
-                                 self.view.window.rootViewController = [[MainController alloc] init];
-                                 
-                                 // 清除指示器
-                                 [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                             } failure:^(NSError *error) {
-                                 // 清除指示器
-                                 [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                             }];
+//    [HttpTool po:
+//                    params:@{
+//                             @"client_id" : kAppKey,
+//                             @"client_secret" : kAppSecret,
+//                             @"grant_type" : @"authorization_code",
+//                             @"redirect_uri" : kRedirectURI,
+//                             @"code" : requestToken
+//                             } success:^(id JSON) {
+//                                 // 保存账号信息
+//                                 Account *account = [[Account alloc] init];
+//                                 account.accessToken = JSON[@"access_token"];
+//                                 account.uid = JSON[@"uid"];
+//                                 [[AccountTool sharedAccountTool] saveAccount:account];
+//                                 
+//                                 // 回到主页面
+//                                 self.view.window.rootViewController = [[MainController alloc] init];
+//                                 
+//                                 // 清除指示器
+//                                 [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//                             } failure:^(NSError *error) {
+//                                 // 清除指示器
+//                                 [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//                             }];
 
-                             }
+    
+    [HttpTool postWithURL:@"https://api.weibo.com/oauth2/access_token"
+                   params:@{
+                            @"client_id" : kAppKey,
+                            @"client_secret" : kAppSecret,
+                            @"grant_type" : @"authorization_code",
+                            @"redirect_uri" : kRedirectURI,
+                            @"code" : requestToken
+                            
+                            } success:^(id responseObject) {
+                                // 保存账号信息
+                                Account *account = [[Account alloc] init];
+                                account.accessToken = responseObject[@"access_token"];
+                                account.uid = responseObject[@"uid"];
+                                [[AccountTool sharedAccountTool] saveAccount:account];
+                                
+                                // 回到主页面
+                                self.view.window.rootViewController = [[MainController alloc] init];
+                                
+                                // 清除指示器
+                                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                            
+     } failure:^(NSError *error) {
+         // 清除指示器
+         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+
+     }];
+
+}
 @end

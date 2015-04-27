@@ -23,6 +23,8 @@
 #import "ParamModel.h"
 #import "ResultModel.h"
 
+#import "StatusCell.h"
+
 
 
 #define kTableBorderWidth 8
@@ -141,7 +143,47 @@
     
 }
 -(void)showNewStatusesCount:(int)count{
+    //1,创建一个label
+    UILabel *label = [[UILabel alloc]init];
+    //2,设置label文字
+    if (count) {
+        label.text = [NSString stringWithFormat:@"%d条新微博",count];
+    }else{
+        label.text = @"没有最新微博";
+    }
+    //3,设置label其他属性
+    label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
     
+    //4,设置label的frame
+    CGFloat w = self.view.frame.size.width;
+    CGFloat h = 35;
+    CGFloat y = self.navigationController.navigationBar.frame.size.height + 20 - h;
+    label.frame = CGRectMake(0, y, w, h);
+    
+    //5,将label增加到导航控制器view上,显示在导航栏下面
+    [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
+    
+    //6,设置动画
+    CGFloat duration = 0.7;
+    label .alpha = 0;
+    [UIView animateWithDuration:duration animations:^{
+        label.transform = CGAffineTransformMakeTranslation(0, h);
+        label.alpha = 1;
+    } completion:^(BOOL finished) {
+        CGFloat delay = 0.5;
+        [UIView animateKeyframesWithDuration:duration delay:delay options:UIViewAnimationOptionCurveEaseOut animations:^{
+            //恢复到原来的位置
+            label.transform = CGAffineTransformIdentity;
+            label.alpha = 0;
+        } completion:^(BOOL finished) {
+            //移除label
+            [label removeFromSuperview];
+        }];
+        
+    }];
+  
 }
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -165,6 +207,7 @@
     NSString *imageUrlStr = status.user.profileImageUrl;
     
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrlStr] placeholderImage:[UIImage imageNamed:@"avatar_default_small.png"]];
+    
 
    // cell.textLabel.text = @"aa";
     return cell;
