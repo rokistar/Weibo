@@ -10,6 +10,9 @@
 #import "UserModel.h"
 #import "StatusModel.h"
 
+#import "ImageListView.h"
+
+
 
 #define kStatusInset 5
 
@@ -19,7 +22,7 @@
 
 #define kSourceFont kTimeFont
 
-#define kTextFont [UIFont systemFontOfSize:13]
+#define kTextFont [UIFont systemFontOfSize:15]
 
 @implementation RetweetedFrame
 
@@ -35,21 +38,35 @@
     
     
     //2,计算转发微博正文frame
-    CGFloat textX = nameX;
+    
+   CGFloat textX = nameX;
+   // CGFloat textX = CGRectGetMaxX(self.nameFrame);
     CGFloat textY = CGRectGetMaxY(self.nameFrame) + kStatusInset;
-    CGFloat maxW = [UIScreen mainScreen].bounds.size.width;
+    CGFloat maxW = [UIScreen mainScreen].bounds.size.width - 2 * kStatusInset;
     CGSize maxSize = CGSizeMake(maxW, MAXFLOAT);
     CGSize textSize = [retweeted_status.text sizeWithFont:kTextFont constrainedToSize:maxSize];
     self.textFrame = (CGRect){{textX,textY},textSize};
     
-    
-    //3,计算自己的frame
-    
+    //3,计算配图
+    if (retweeted_status.pic_urls.count) {
+        CGFloat imageX = textX;
+        CGFloat imageY = CGRectGetMaxY(_textFrame) + kStatusInset;
+        CGSize imageSize = [ImageListView imageListSizeWithCount:retweeted_status.pic_urls.count];
+        self.imageFrame = (CGRect){{imageX,imageY},imageSize};
+    }
+
+    //4,计算自己的frame
     CGFloat x = 0;
     CGFloat y = 0;
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
-    CGFloat h = CGRectGetMaxY(self.textFrame);
-    self.frame = CGRectMake(x, y, w, h);
-    
+    if (retweeted_status.pic_urls.count) {
+        CGFloat h = CGRectGetMaxY(self.imageFrame) + kStatusInset;
+        self.frame = CGRectMake(x, y, w, h);
+    }else{
+        
+        CGFloat h = CGRectGetMaxY(self.textFrame) + kStatusInset;
+        self.frame = CGRectMake(x, y, w, h);
+        
+    }
 }
 @end

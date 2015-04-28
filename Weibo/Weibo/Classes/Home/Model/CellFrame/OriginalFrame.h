@@ -14,6 +14,9 @@
 
 //微博数据模型
 @property (nonatomic,strong)StatusModel *status;
+
+//头像
+@property (nonatomic,assign)CGRect iconFrame;
 //昵称
 @property (nonatomic,assign)CGRect nameFrame;
 //正文
@@ -22,8 +25,10 @@
 @property (nonatomic,assign)CGRect sourceFrame;
 //时间
 @property (nonatomic,assign)CGRect timeFrame;
-//头像
-@property (nonatomic,assign)CGRect iconFrame;
+//配图
+@property (nonatomic,assign)CGRect imageFrame;
+
+
 //自己的frame
 @property (nonatomic,assign)CGRect frame;
 

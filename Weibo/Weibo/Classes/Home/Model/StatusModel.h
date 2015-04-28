@@ -34,17 +34,19 @@
 @property(nonatomic,strong)StatusModel *retweeted_status;
 
 /**    int    转发数*/
-@property(nonatomic,assign)int *reposts_count;
+@property(nonatomic,assign)int reposts_count;
 
 /**    int    评论数*/
-@property(nonatomic,assign)int *comments_count;
+@property(nonatomic,assign)int comments_count;
 
 /**    int    表态数*/
-@property(nonatomic,assign)int *attitudes_count;
-/**    object    微博配图地址。多图时返回多图链接。无配图返回“[]” 数组里面都是HMPhoto模型*/
+@property(nonatomic,assign)int attitudes_count;
+/**    object    微博配图地址。多图时返回多图链接。无配图返回“[]” 数组里面都是Photo模型*/
 @property(nonatomic,copy)NSArray *pic_urls;
-
+/** 缩略图 */
+@property (nonatomic, copy) NSString *thumbnail_pic;
 //接口
 //+(instancetype)statusModelWithDict:(NSDictionary *)dict;
+//- (id)initWithDict:(NSDictionary *)dict;
 
 @end

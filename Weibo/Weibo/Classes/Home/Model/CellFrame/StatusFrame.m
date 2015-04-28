@@ -22,7 +22,7 @@
     [self addToolbarFrame];
     
     //3,计算微博整体cell高度
-    self.cellHight = CGRectGetMaxY(self.toolbarFrame);
+    self.cellHight = CGRectGetMaxY(self.toolbarFrame) + 8;
     
     
     
@@ -38,8 +38,8 @@
 //计算底部工具条
 - (void)addToolbarFrame{
     CGFloat x = 0;
-    CGFloat y = CGRectGetMaxX(self.detailFrame.frame);
-    CGFloat w = [UIScreen mainScreen].applicationFrame.size.width;
+    CGFloat y = CGRectGetMaxY(self.detailFrame.frame);
+    CGFloat w = [UIScreen mainScreen].bounds.size.width;
     CGFloat h = 35;
     self.toolbarFrame = CGRectMake(x, y, w, h);
     

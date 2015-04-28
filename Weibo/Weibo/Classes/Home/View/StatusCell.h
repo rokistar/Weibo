@@ -14,5 +14,5 @@
 
 @property (nonatomic,strong)StatusFrame *statusFrame;
 
-
++(instancetype)cellWithTableView:(UITableView *)tableView;
 @end

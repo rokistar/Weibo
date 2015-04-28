@@ -37,25 +37,25 @@
 
 @interface HomeController ()<UITableViewDataSource,UITableViewDelegate>{
 
-    NSMutableArray *_statusFrames;
+ //   NSMutableArray *_statusFrames;
 }
-@property(nonatomic,strong)NSMutableArray *statuses;
-//@property(nonatomic,strong)StatusFrame *statusesFrame;
+//@property(nonatomic,strong)NSMutableArray *statuses;
+@property(nonatomic,strong)NSMutableArray *statusesFrame;
 
 @end
 
 @implementation HomeController
-//-(NSMutableArray *)statuses
-//{
-//    if (_statuses==nil) {
-//        _statuses=[NSMutableArray array];
-//    }
-//    return _statuses;
-//}
+-(NSMutableArray *)statusesFrame
+{
+    if (_statusesFrame==nil) {
+        _statusesFrame=[NSMutableArray array];
+    }
+    return _statusesFrame;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor redColor];
+   
     [self buildUI];
     
     
@@ -80,6 +80,7 @@
 
     // 4.背景颜色
     self.view.backgroundColor = kGlobalBg;
+  
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, kTableBorderWidth, 0);
 }
@@ -128,9 +129,15 @@
 }
 -(void)loadNewStatuses:(UIRefreshControl *)refreshControl{
     //1.封装请求参数
+//    ParamModel *params = [[ParamModel alloc]init];
+    
     ParamModel *params = [[ParamModel alloc]init];
     params.access_token = [AccountTool sharedAccountTool].account.accessToken;
-    StatusModel *firstStatus = [_statuses firstObject];
+
+    StatusFrame *firstStatusFrame = [self.statusesFrame firstObject];
+    StatusModel *firstStatus = firstStatusFrame.status;
+    
+    //StatusModel *firstStatus = [_statuses firstObject];
     if (firstStatus) {
         params.since_id=@([firstStatus.idstr longLongValue]);
     }
@@ -138,15 +145,17 @@
      
                            success:^(ResultModel *result) {
         //获取最新的微博数组
-        NSArray *newStatuses=result.statuses;
+//        NSArray *newStatuses=result.statuses;
+        NSArray *newFrames = [self statusFramesWithStatuses:result.statuses];
+                               
         //把新数据添加到旧数据的前面
-        NSRange range=NSMakeRange(0, newStatuses.count);
+        NSRange range=NSMakeRange(0, newFrames.count);
         NSIndexSet *indexSet=[NSIndexSet indexSetWithIndexesInRange:range];
-        [self.statuses insertObjects:newStatuses atIndexes:indexSet];
-        RLog(@"刷新了--%d条新数据",newStatuses.count);
+        [self.statusesFrame insertObjects:newFrames atIndexes:indexSet];
+        RLog(@"刷新了--%d条新数据",newFrames.count);
         [self.tableView reloadData];
         
-        [self showNewStatusesCount:newStatuses.count];
+        [self showNewStatusesCount:newFrames.count];
         [refreshControl endRefreshing];
         
     } failure:^(NSError *error) {
@@ -201,39 +210,36 @@
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
-    return _statuses.count;
-
-    
+    return self.statusesFrame.count;
 }
 //
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    static NSString *CellIdentifier = @"Cell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
-    
-    //取出这行对应的微博字典数据,转换为数据模型
-    StatusModel *status = _statuses[indexPath.row];
-    cell.textLabel.text = status.text;
-    cell.detailTextLabel.text = status.user.name;
-    NSString *imageUrlStr = status.user.profileImageUrl;
-    
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrlStr] placeholderImage:[UIImage imageNamed:@"avatar_default_small.png"]];
-    
+   
+//    StatusCell *cell = [StatusCell cellWithTableView:tableView];
+//    cell.statusFrame = self.statusesFrame[indexPath.row];
+    static NSString *ID = @"cell";
+    StatusCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (!cell) {
+        cell = [[StatusCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+    }
+    cell.statusFrame = self.statusesFrame[indexPath.row];
+   // return cell;
 
-   // cell.textLabel.text = @"aa";
+//    cell.textLabel.text = @"aa";
     return cell;
 
 }
 
 //#pragma mark - tableView delaget methods
 //#pragma mark 返回每一行cell的高度 每次tableView刷新数据的时候都会调用
-//// 而且会一次性算出所有cell的高度，比如有100条数据，一次性调用100次
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    
-//}
+// 而且会一次性算出所有cell的高度，比如有100条数据，一次性调用100次
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    StatusFrame *statusFrame = self.statusesFrame[indexPath.row];
+    return statusFrame.cellHight;
+}
+
 
 #pragma mark 监听cell的点击
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

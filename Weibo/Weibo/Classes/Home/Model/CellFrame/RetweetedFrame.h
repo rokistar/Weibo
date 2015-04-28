@@ -21,5 +21,6 @@
 @property (nonatomic,assign)CGRect textFrame;
 //自己的frame
 @property (nonatomic,assign)CGRect frame;
-
+//转发配图
+@property (nonatomic,assign)CGRect imageFrame;
 @end

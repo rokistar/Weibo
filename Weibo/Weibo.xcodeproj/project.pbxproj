@@ -22,6 +22,9 @@
 		FC5DB37A1AE8BAF7009CA727 /* StatusTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5DB3791AE8BAF7009CA727 /* StatusTool.m */; };
 		FC6064581AE7C1E80088FF6B /* ComposePhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6064571AE7C1E80088FF6B /* ComposePhotoView.m */; };
 		FC84E2D01AEE275A0071035E /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE69CCC1AEE23F500FA620B /* UserModel.m */; };
+		FC84E2D31AEEAB810071035E /* ImageListView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84E2D21AEEAB810071035E /* ImageListView.m */; };
+		FC84E2D61AEEABA00071035E /* ImageItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84E2D51AEEABA00071035E /* ImageItemView.m */; };
+		FC84E2D91AEF82CD0071035E /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84E2D81AEF82CD0071035E /* UIImage+Resize.m */; };
 		FC9E66351AE74BC9002FF852 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9E66341AE74BC9002FF852 /* ImageIO.framework */; };
 		FC9E66381AE751DE002FF852 /* NewStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9E66371AE751DE002FF852 /* NewStatusView.m */; };
 		FC9E663A1AE756D5002FF852 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9E66391AE756D5002FF852 /* MapKit.framework */; };
@@ -2719,6 +2722,12 @@
 		FC5DB3791AE8BAF7009CA727 /* StatusTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusTool.m; sourceTree = "<group>"; };
 		FC6064561AE7C1E80088FF6B /* ComposePhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposePhotoView.h; sourceTree = "<group>"; };
 		FC6064571AE7C1E80088FF6B /* ComposePhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposePhotoView.m; sourceTree = "<group>"; };
+		FC84E2D11AEEAB810071035E /* ImageListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageListView.h; sourceTree = "<group>"; };
+		FC84E2D21AEEAB810071035E /* ImageListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageListView.m; sourceTree = "<group>"; };
+		FC84E2D41AEEABA00071035E /* ImageItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageItemView.h; sourceTree = "<group>"; };
+		FC84E2D51AEEABA00071035E /* ImageItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageItemView.m; sourceTree = "<group>"; };
+		FC84E2D71AEF82CD0071035E /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		FC84E2D81AEF82CD0071035E /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		FC9E66341AE74BC9002FF852 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		FC9E66361AE751DE002FF852 /* NewStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewStatusView.h; sourceTree = "<group>"; };
 		FC9E66371AE751DE002FF852 /* NewStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewStatusView.m; sourceTree = "<group>"; };
@@ -5976,6 +5985,10 @@
 				FC10AF6F1AEB5A8400CA0CF9 /* RetweetedView.m */,
 				FCDFD19A1AEDD5850075D900 /* UserIconView.h */,
 				FCDFD19B1AEDD5850075D900 /* UserIconView.m */,
+				FC84E2D11AEEAB810071035E /* ImageListView.h */,
+				FC84E2D21AEEAB810071035E /* ImageListView.m */,
+				FC84E2D41AEEABA00071035E /* ImageItemView.h */,
+				FC84E2D51AEEABA00071035E /* ImageItemView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -8669,6 +8682,8 @@
 				FC2FAB231AE630910088682E /* UIColor+RGB.m */,
 				FC5DB3751AE8ACB2009CA727 /* MBProgressHUD+Show.h */,
 				FC5DB3761AE8ACB2009CA727 /* MBProgressHUD+Show.m */,
+				FC84E2D71AEF82CD0071035E /* UIImage+Resize.h */,
+				FC84E2D81AEF82CD0071035E /* UIImage+Resize.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -11391,6 +11406,7 @@
 				FCC576B81AE5A65C0016F693 /* UIView+WebCacheOperation.m in Sources */,
 				FC9FD96D1AE648CE0092E6BB /* AFURLRequestSerialization.m in Sources */,
 				FC9FD9451AE647780092E6BB /* NSObject+MJIvar.m in Sources */,
+				FC84E2D31AEEAB810071035E /* ImageListView.m in Sources */,
 				FC9FD9E51AE660AE0092E6BB /* StatusModel.m in Sources */,
 				FC9FD9681AE648CE0092E6BB /* AFHTTPRequestOperationManager.m in Sources */,
 				FC9FD9491AE647780092E6BB /* MJRefreshConst.m in Sources */,
@@ -11405,9 +11421,11 @@
 				FCC576BC1AE5A65C0016F693 /* NewWeiboController.m in Sources */,
 				FCC576BD1AE5A65C0016F693 /* DiscoverController.m in Sources */,
 				FCC576BE1AE5A65C0016F693 /* MeController.m in Sources */,
+				FC84E2D91AEF82CD0071035E /* UIImage+Resize.m in Sources */,
 				FC9FD9E81AE660C20092E6BB /* PhotoModel.m in Sources */,
 				FCC576BF1AE5A65C0016F693 /* MessageController.m in Sources */,
 				FC10AF511AEB545200CA0CF9 /* OriginalFrame.m in Sources */,
+				FC84E2D61AEEABA00071035E /* ImageItemView.m in Sources */,
 				FCC576C01AE5A65C0016F693 /* HomeController.m in Sources */,
 				FC9FD9401AE647780092E6BB /* MJConst.m in Sources */,
 				FCC576C11AE5A65C0016F693 /* MainController.m in Sources */,
@@ -11542,7 +11560,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Weibo/Weibo.pch;
 				INFOPLIST_FILE = Weibo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -11556,7 +11574,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Weibo/Weibo.pch;
 				INFOPLIST_FILE = Weibo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

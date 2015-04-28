@@ -22,13 +22,16 @@
 
 -(void)setStatus:(StatusModel *)status{
     _status = status;
+    //原创微博frame
     [self addOriginalFrame];
+    //转发微博frame
     [self addRetweetedFrameWithStatus:status];
-    
+    //自己的frame
     [self addDetailFrame];
     
     
 }
+//计算原创微博的frame
 -(void)addOriginalFrame{
     OriginalFrame *originalFrame = [[OriginalFrame alloc]init];
     originalFrame.status = self.status;
@@ -36,6 +39,7 @@
     
     
 }
+//计算转发微博的frame
 - (void)addRetweetedFrameWithStatus:(StatusModel *)status{
     if (status.retweeted_status) {
         RetweetedFrame *retweetedFrame = [[RetweetedFrame alloc]init];
@@ -51,11 +55,10 @@
     }
     
 }
-
 -(void)addDetailFrame{
     CGFloat x = 0;
     CGFloat y = 0;
-    CGFloat w = [UIScreen mainScreen].applicationFrame.size.width;
+    CGFloat w = [UIScreen mainScreen].bounds.size.width;
     CGFloat h = self.tempHeight;
     self.frame = CGRectMake(x, y, w, h);
 }

@@ -10,8 +10,6 @@
 #import "OriginalView.h"
 #import "RetweetedView.h"
 #import "DetailFrame.h"
-#import "OriginalFrame.h"
-#import "RetweetedView.h"
 
 
 @interface DetailView(){
@@ -31,6 +29,7 @@
         [self addOriginalView];
         //增加转发微博
         [self addRetweetedView];
+       // self.backgroundColor = [UIColor redColor];
     }
     return self;
 }

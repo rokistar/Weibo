@@ -71,7 +71,7 @@
     _user = user;
     
     // 1.设置用户头像图片
-    [HttpTool downloadImage:user.profileImageUrl place:[UIImage imageNamed:_placehoder] imageView:_icon];
+    [HttpTool downloadImage:user.profile_image_url place:[UIImage imageNamed:_placehoder] imageView:_icon];
   
     // 2.设置认证图标
     NSString *verifiedIcon = nil;

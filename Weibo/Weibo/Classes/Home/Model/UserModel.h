@@ -29,7 +29,7 @@ typedef enum {
 @property (nonatomic, assign) long long ID;
 @property (nonatomic, copy) NSString *createdAt;
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *profileImageUrl;
+@property (nonatomic, copy) NSString *profile_image_url;
 @property (nonatomic, assign) BOOL verified; //是否是微博认证用户，即加V用户
 @property (nonatomic, assign) VerifiedType verifiedType; // 认证类型
 @property (nonatomic, assign) int mbrank; // 会员等级
