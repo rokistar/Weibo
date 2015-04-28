@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "StatusModel.h"
+
+@class StatusModel;
 
 @interface ToolBarView : UIImageView
 
 @property (nonatomic, strong) StatusModel *status;
 
+
+
+@property (nonatomic, strong) NSString *aaa;
 @end

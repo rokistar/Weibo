@@ -51,7 +51,7 @@
         self.image = image;
         
         //4,设置背景
-       // self.backgroundColor = [UIColor colorWithR:117 g:117 b:117 alpha:1];
+       self.backgroundColor = [UIColor colorWithR:240 g:240 b:240 alpha:1];
         
     }
     return self;
@@ -64,10 +64,12 @@
     //设置自己的frame
     self.frame = retweetedFrame.frame;
     //设置昵称的frame
-    self.nameLabel.text = retweeted_status.user.name;
-    self.textlabel.frame = retweetedFrame.nameFrame;
+//    self.nameLabel.text = retweeted_status.user.name;
+//    //self.nameLabel.text = [NSString stringWithFormat:@"@%@", retweeted_status.user.name];
+//    self.textlabel.frame = retweetedFrame.nameFrame;
     //设置正文的frame
-    self.textlabel.text = retweeted_status.text;
+  //  self.textlabel.text = retweeted_status.text;
+    self.textlabel.text = [NSString stringWithFormat:@"@%@:%@", retweeted_status.user.name,retweeted_status.text];
     self.textlabel.frame = retweetedFrame.textFrame;
     //设置配图的frame
     //设置配图

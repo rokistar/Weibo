@@ -74,6 +74,8 @@
     self.detailView.detailFrame = statusFrame.detailFrame;
     //微博底部工具条的frame数据
     self.toolbar.frame = statusFrame.toolbarFrame;
+    //设置toolbar的数据模型
+    self.toolbar.status = statusFrame.status;
 }
 
 @end

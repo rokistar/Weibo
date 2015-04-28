@@ -39,8 +39,8 @@
     
     //2,计算转发微博正文frame
     
-   CGFloat textX = nameX;
-   // CGFloat textX = CGRectGetMaxX(self.nameFrame);
+    //CGFloat textX = nameX;
+    CGFloat textX = CGRectGetMaxX(self.nameFrame);
     CGFloat textY = CGRectGetMaxY(self.nameFrame) + kStatusInset;
     CGFloat maxW = [UIScreen mainScreen].bounds.size.width - 2 * kStatusInset;
     CGSize maxSize = CGSizeMake(maxW, MAXFLOAT);
@@ -63,7 +63,6 @@
         CGFloat h = CGRectGetMaxY(self.imageFrame) + kStatusInset;
         self.frame = CGRectMake(x, y, w, h);
     }else{
-        
         CGFloat h = CGRectGetMaxY(self.textFrame) + kStatusInset;
         self.frame = CGRectMake(x, y, w, h);
         
